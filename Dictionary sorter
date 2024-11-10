@@ -1,0 +1,27 @@
+# Function to accept a dictionary from the user
+def accept_dict():
+    user_input = input("Enter dictionary (key:value pairs) separated by commas: ")
+    user_dict = {}
+    try:
+        # Parse the input string into a dictionary
+        items = user_input.split(',')
+        for item in items:
+            key, value = item.split(':')
+            user_dict[key.strip()] = value.strip()
+    except Exception as e:
+        print("Invalid input format! Please ensure the dictionary is in 'key:value' format.")
+        return None
+    return user_dict
+
+# Main function to sort and print the dictionary
+def main():
+    user_dict = accept_dict()
+    if user_dict is not None:
+        # Sort the dictionary by keys in ascending order
+        sorted_dict = dict(sorted(user_dict.items()))
+        
+        # Print the sorted dictionary
+        print("Sorted Dictionary:", sorted_dict)
+
+if __name__ == "__main__":
+    main()
